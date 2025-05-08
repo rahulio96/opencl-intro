@@ -1,0 +1,68 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.9"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "a4",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenCLVectorAdd_Template::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenCLVectorAdd_Template-Release-66b36df8b37975e282eb.json",
+					"name" : "OpenCLVectorAdd_Template",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wb-Release-b547d35481f7932d5f9c.json",
+					"name" : "wb",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/rahulgupta/Desktop/CSC-163/opencl-intro/source/out/build/x64-Debug",
+		"source" : "C:/Users/rahulgupta/Desktop/CSC-163/opencl-intro/source"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
