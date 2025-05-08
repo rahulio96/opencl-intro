@@ -1,0 +1,5 @@
+.\Debug\OpenCLVectorAdd_Template -e .\OpenCLVectorAdd\Dataset\0\output.raw -i .\OpenCLVectorAdd\Dataset\0\input0.raw,.\OpenCLVectorAdd\Dataset\0\input1.raw -o .\OpenCLVectorAdd\Dataset\0\myoutput.raw -t vector
+.\Debug\OpenCLVectorAdd_Template -e .\OpenCLVectorAdd\Dataset\1\output.raw -i .\OpenCLVectorAdd\Dataset\1\input0.raw,.\OpenCLVectorAdd\Dataset\1\input1.raw -o .\OpenCLVectorAdd\Dataset\1\myoutput.raw -t vector
+.\Debug\OpenCLVectorAdd_Template -e .\OpenCLVectorAdd\Dataset\2\output.raw -i .\OpenCLVectorAdd\Dataset\2\input0.raw,.\OpenCLVectorAdd\Dataset\2\input1.raw -o .\OpenCLVectorAdd\Dataset\2\myoutput.raw -t vector
+.\Debug\OpenCLVectorAdd_Template -e .\OpenCLVectorAdd\Dataset\3\output.raw -i .\OpenCLVectorAdd\Dataset\3\input0.raw,.\OpenCLVectorAdd\Dataset\3\input1.raw -o .\OpenCLVectorAdd\Dataset\3\myoutput.raw -t vector
+.\Debug\OpenCLVectorAdd_Template -e .\OpenCLVectorAdd\Dataset\4\output.raw -i .\OpenCLVectorAdd\Dataset\4\input0.raw,.\OpenCLVectorAdd\Dataset\4\input1.raw -o .\OpenCLVectorAdd\Dataset\4\myoutput.raw -t vector
