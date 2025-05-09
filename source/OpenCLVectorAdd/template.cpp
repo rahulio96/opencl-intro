@@ -9,7 +9,10 @@
 //								"next_line_of_code  \n"
 //								...
 //								"last_line_of_code  \n";
-const char* kernalSource;
+const char* kernelSource =      "__kernel void vadd(__global const float *in1, __global float *in2, __global float *out) { \n"
+                                "   int i = get_global_id(0); \n"
+                                "   out[i] = in1[i] + in2[i]; \n"
+                                "}";
 
 int main(int argc, char *argv[]) {
   wbArg_t args;
@@ -52,9 +55,9 @@ int main(int argc, char *argv[]) {
   wbLog(TRACE, "The input size is ", inputLengthBytes, " bytes");
 
   //@@ Initialize the workgroup dimensions
+  const size_t Gsz = ((inputLength - 1) / 256 + 1) * 256;
+  const size_t Bsz = 256;
   cl_int clerr = CL_SUCCESS;
-  cl_platform_id cpPlatform;    // OpenCL platform
-  cl_device_id device_id;       // device ID
 
   //@@ Bind to platform
   clerr = clGetPlatformIDs(1, &cpPlatform, NULL);
@@ -70,13 +73,13 @@ int main(int argc, char *argv[]) {
 
   //@@ Create the compute program from the source buffer
   cl_program clpgm;
-  clpgm = clCreateProgramWithSource(clctx, 1, &kernalSource, NULL, &clerr);
+  clpgm = clCreateProgramWithSource(clctx, 1, &kernelSource, NULL, &clerr);
 
   //@@ Build the program executable
   clerr = clBuildProgram(clpgm, 0, NULL, NULL, NULL, NULL);
 
   //@@ Create the compute kernel in the program we wish to run
-  cl_kernel clkern = clCreateKernel(clpgm, "kernelSource", &clerr);
+  cl_kernel clkern = clCreateKernel(clpgm, "vadd", &clerr);
 
   //@@ Create the input and output arrays in device memory for our calculation
   //@@ Write our data set into the input array in device memory
@@ -92,8 +95,6 @@ int main(int argc, char *argv[]) {
 
   //@@ Execute the kernel over the entire range of the data set
   cl_event event = NULL;
-  const size_t Gsz = ((inputLength-1) / 256 + 1) * 256;
-  const size_t Bsz = 256;
   clerr = clEnqueueNDRangeKernel(clcmdq, clkern, 1, NULL, &Gsz, &Bsz, 0, NULL, &event);
 
   //@@ Wait for the command queue to get serviced before reading back results
