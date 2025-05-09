@@ -55,8 +55,9 @@ int main(int argc, char *argv[]) {
   wbLog(TRACE, "The input size is ", inputLengthBytes, " bytes");
 
   //@@ Initialize the workgroup dimensions
-  const size_t Gsz = ((inputLength - 1) / 256 + 1) * 256;
-  const size_t Bsz = 256;
+  int WORK_GROUP_SIZE = 256;
+  const size_t Gsz = ((inputLength - 1) / WORK_GROUP_SIZE + 1) * WORK_GROUP_SIZE;
+  const size_t Bsz = WORK_GROUP_SIZE;
   cl_int clerr = CL_SUCCESS;
 
   //@@ Bind to platform
